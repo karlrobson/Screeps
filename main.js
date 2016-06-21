@@ -4,6 +4,12 @@ var roleBuilder = require('role.builder');
 
 for(var name in Game.creeps) {
     
+    for(var name in Memory.creeps) {
+        if(!Game.creeps[name]) {
+            delete Memory.creeps[name];
+        }
+    }
+    
     var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
