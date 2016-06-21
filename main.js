@@ -4,11 +4,7 @@ var roleBuilder = require('role.builder');
 
 for(var name in Game.creeps) {
     
-    for(var name in Memory.creeps) {
-        if(!Game.creeps[name]) {
-            delete Memory.creeps[name];
-        }
-    }
+    
     
     var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
@@ -35,4 +31,11 @@ for(var name in Game.creeps) {
             if(creep.memory.role == 'builder'){
                 roleBuilder.run(creep);
             }
-}
+    
+    for(var name in Memory.creeps) {
+        if(!Game.creeps[name]) {
+            delete Memory.creeps[name];
+        }
+    }
+    
+}   
