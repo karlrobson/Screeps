@@ -1,8 +1,7 @@
 var roleUpgrader = {
     
-    
     run: function(creep) {
-        
+        //Transfer energy to creep from spawn or extension
         if(creep.carry.energy == 0) {
             var loc = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
@@ -16,14 +15,12 @@ var roleUpgrader = {
                 //creep.moveTo(sources[0]);
             //}
         }
-        
+        //Upgrades the controller
         else {
-            
             if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(creep.room.controller);
             }  
         }
-        
     }
 };
 
