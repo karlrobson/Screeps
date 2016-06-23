@@ -19,7 +19,7 @@ var roleBuilder = {
             }
 	    }
 	    
-	    else if (creep.memory.building) {
+	    else if (creep.memory.repairing) {
 	        var targets = creep.room.find(FIND_STRUCTURES);
 	        if(targets.length) {
 	            if(creep.repair(targets[0]) == ERR_NOT_IN_RANGE){
