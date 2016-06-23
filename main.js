@@ -1,6 +1,7 @@
 var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
+//var autoSpawn = require('auto.respawn');
 
 module.exports.loop = function () {
     //Memory cleanup
@@ -10,13 +11,16 @@ module.exports.loop = function () {
         }
     }
     
+    //if(Game.creeps.length < 9) {
+        //autoSpawn.run();
+    //}
     var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
     
     //If there are no harvester creeps then spawn a basic harvester, otherwise spawn a bigger one if there are less than 4
     if(harvesters.length == 0) {
-        Game.spawns.Heliopolis.createCreep([WORK, CARRY, MOVE], {role: 'harvester'});
+       Game.spawns.Heliopolis.createCreep([WORK, CARRY, MOVE], {role: 'harvester'});
     }
     else if (harvesters.length < 4) {
         Game.spawns.Heliopolis.createCreep([WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE], {role: 'harvester'});
