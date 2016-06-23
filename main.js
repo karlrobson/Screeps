@@ -19,11 +19,11 @@ module.exports.loop = function () {
         Game.spawns.Heliopolis.createCreep([WORK, CARRY, MOVE], {role: 'harvester'});
     }
     else if (harvesters.length < 4) {
-        Game.spawns.Heliopolis.createCreep([WORK, WORK, CARRY, MOVE, MOVE], {role: 'harvester'});
+        Game.spawns.Heliopolis.createCreep([WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE], {role: 'harvester'});
     }
     
-    //Spawn an upgrader if there are less than 2
-    if(upgraders.length < 2) {
+    //Spawn an upgrader if there are less than 1
+    if(upgraders.length < 1) {
         Game.spawns.Heliopolis.createCreep([WORK, WORK, CARRY, MOVE, MOVE], {role: 'upgrader'});
     }
     
